@@ -1,0 +1,17 @@
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CLOUD-CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/SubprojectKTTKPM14Nhom15/SubProject
+          clone-on-start: true
+
+
+
+
+

@@ -1,0 +1,22 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: SONG-SERVICE
+          uri: lb://SONG-SERVICE
+          predicates:
+            - Path=/songs/**
+        - id: SINGER-SERVICE
+          uri: lb://SINGER-SERVICE
+          predicates:
+            - Path=/singers/**
+
+
+
+
+

@@ -1,0 +1,29 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: SONG-SERVICE
+          uri: lb://SONG-SERVICE
+          predicates:
+            - Path=/rest/songs/**
+        - id: SINGER-SERVICE
+          uri: lb://SINGER-SERVICE
+          predicates:
+            - Path=/singers/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
+
+
+

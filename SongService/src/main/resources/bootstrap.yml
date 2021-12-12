@@ -1,0 +1,16 @@
+
+spring:
+  cloud:
+    config:
+      import-check:
+        enabled: false
+        uri: http://localhost:9296
+
+
+
+resilience4j:
+  retry:
+    instances:
+      basic:
+        maxRetryAttemps: 5
+        waitDuration: 3s
